@@ -11,8 +11,8 @@ function App() {
       alert('Por favor, ¡Nombres de usuario sin la letra o!');
     }
   };
-  const handleRegister = () => {   //que hacen los handle?
-    if (username.trim()==='' || username.toLowerCase().includes('o')){ //porque 3 igual?
+  const handleRegister = () => {   
+    if (username.trim()==='' || username.toLowerCase().includes('o')){ 
       alert ('Usuario invalido');
     } 
     else {
