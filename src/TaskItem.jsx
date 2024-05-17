@@ -1,5 +1,3 @@
-// TaskItem.js
-
 import PropTypes from 'prop-types';
 
 function TaskItem({ task, toggleTaskCompletion, deleteTask }) {
