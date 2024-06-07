@@ -14,7 +14,9 @@ function AddTask({ addTask }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <label htmlFor="new-task">Agregar tarea:</label>
       <input 
+        id="new-task"
         type="text" 
         value={task} 
         onChange={(e) => setTask(e.target.value)} 
@@ -30,4 +32,5 @@ AddTask.propTypes = {
 };
 
 export default AddTask;
+
 

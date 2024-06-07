@@ -1,34 +1,33 @@
 import PropTypes from 'prop-types';
+import TaskItem from './TaskItem';
 
-const ListaTareas = ({ tasks, toggleTask, deleteTask }) => {
+function TaskList({ tasks, toggleTaskCompletion, deleteTask }) {
+
   return (
     <ul>
       {tasks.map((task, index) => (
-        <li key={index}>
-          <input
-            type="checkbox"
-            checked={task.completed}
-            onChange={() => toggleTask(index)}
-          />
-          <span style={{ color: 'black' }}>
-            {task.title}
-          </span>
-          <button onClick={() => deleteTask(index)}>Eliminar</button>
-        </li>
+        <TaskItem 
+          key={task.id} 
+          task={task} 
+          toggleTaskCompletion={() => toggleTaskCompletion(index)} 
+          deleteTask={() => deleteTask(index)} 
+        />
       ))}
     </ul>
   );
-};
+}
 
-ListaTareas.propTypes = {
+TaskList.propTypes = {
   tasks: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      completed: PropTypes.bool.isRequired
+      id: PropTypes.number.isRequired, 
+      text: PropTypes.string.isRequired,
+      completed: PropTypes.bool.isRequired,
     })
   ).isRequired,
-  toggleTask: PropTypes.func.isRequired,
-  deleteTask: PropTypes.func.isRequired
+  toggleTaskCompletion: PropTypes.func.isRequired,
+  deleteTask: PropTypes.func.isRequired,
 };
 
-export default ListaTareas;
+export default TaskList;
+

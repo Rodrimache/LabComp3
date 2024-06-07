@@ -4,9 +4,12 @@ import AddTask from './AddTask';
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  const [nextId, setNextId] = useState(1);
 
   const addTask = (task) => {
-    setTasks([...tasks, { text: task, completed: false }]);
+    const newTask = { id: nextId, text: task, completed: false };
+    setTasks([...tasks, newTask]);
+    setNextId(nextId + 1);
   };
 
   const toggleTaskCompletion = (index) => {
@@ -35,4 +38,5 @@ function App() {
 }
 
 export default App;
+
 
